@@ -1,0 +1,119 @@
+
+$delay-2: 200ms
+$delay-3: 300ms
+$delay-4: 400ms
+$ml: 20px
+$layout-breakpoint-small: 800px
+
+@media (max-width: $layout-breakpoint-small)
+
+  .inner
+    width: 100% !important
+    height: 600px !important
+
+    .flex
+      flex-direction: column
+      height: 100%
+
+    .item-content
+      margin-top: -120px
+
+    .item:hover
+      .item-content
+        margin-top: 0
+
+
+html, body, #root
+  height: 100%
+
+html
+  background: url(../img/core/frontend/scss/base/img/transparent.png) no-repeat #1c1c1e
+
+.wrapper
+  background: url(https://eu-wotp.wgcdn.co/static/5.117.1_a28195/wotp_static/img/core/frontend/scss/common/blocks/sparkles/img/sparkles.png) 50% 0
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+  .inner
+    width: 960px
+    height: 446px
+    overflow: hidden
+
+    .flex
+      background-image: url("https://eu-wotp.wgcdn.co/dcont/fb/image/one-row-widget-background-7.jpg")
+      background-size: cover
+      background-position: center 0
+      background-repeat: no-repeat
+      display: flex
+      margin-left: -$ml
+      margin-right: -$ml
+
+      .item
+        overflow: hidden
+        position: relative
+        transform: skew(-6deg,0deg)
+        flex: 1 1 0%
+        transition: all $delay-3
+
+        .text
+          left: $ml + 5
+          transition: all $delay-3
+          top: 100%
+          color: white
+          position: absolute
+          margin: 2rem
+
+        &:hover
+          flex: 1 1 25%
+          @media (max-width: $layout-breakpoint-small)
+            flex: 1 1 50%
+
+          .item-content
+            margin-left: 0
+
+          .text
+            top: 0
+
+        &:after
+          content: ""
+          display: block
+          width: 3px
+          background: -webkit-linear-gradient(-90deg, rgba(250, 184, 27, 0), rgb(250, 184, 27) 40%, rgb(255, 231, 175) 47%, rgb(255, 255, 255) 50%, rgb(255, 231, 175) 53%, rgb(250, 184, 27) 60%, rgba(250, 184, 27, 0))
+          position: absolute
+          top: 0
+          bottom: 0
+          height: 100%
+
+          @media (max-width: $layout-breakpoint-small)
+            width: 100%
+            height: 3px
+            left: 0
+            right: 0
+            background: linear-gradient(90deg,rgba(250,184,27,0),#fab81b 40%,#ffe7af 47%,#fff 50%,#ffe7af 53%,#fab81b 60%,rgba(250,184,27,0))
+
+        &:before
+          position: absolute
+          content: ""
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          opacity: .4
+          background: rgba(0,0,0,.5)
+          background: -webkit-linear-gradient(-90deg,rgba(0,0,0,.5),rgba(0,0,0,.4962) 55%,rgba(0,0,0,.10968) 77%,transparent)
+          background: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.4962) 55%,rgba(0,0,0,.10968) 77%,transparent)
+          transition: opacity .4s ease
+          z-index: 1
+
+        .item-content
+          transform: skew(6deg, 0)
+          transition: all $delay-3
+          display: flex
+          justify-content: center
+          align-items: center
+
+        img
+          height: 400px
+          width: auto
